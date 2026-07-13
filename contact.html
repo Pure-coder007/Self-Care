@@ -1,23 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contact Us &mdash; Self-Care Book Box</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet" />
 
     <link href="assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link
-      href="assets/vendors/bootstrap-icons/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
+    <link href="assets/vendors/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
     <link href="assets/vendors/glightbox/glightbox.min.css" rel="stylesheet" />
     <link href="assets/vendors/swiper/swiper-bundle.min.css" rel="stylesheet" />
     <link href="assets/vendors/aos/aos.css" rel="stylesheet" />
@@ -25,538 +20,415 @@
     <link href="assets/css/style.css" rel="stylesheet" />
 
     <script>
-      (function () {
-        const storedTheme = localStorage.getItem("theme") || "light";
-        document.documentElement.setAttribute("data-bs-theme", storedTheme);
-      })();
+        (function() {
+            const storedTheme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-bs-theme", storedTheme);
+        })();
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  </head>
 
-  <body>
+    <style>
+        /* Remove Bootstrap blue outline */
+        .form-control:focus,
+        .form-select:focus {
+            outline: none !important;
+            box-shadow: none !important;
+            border-color: #215c5c !important;
+        }
+
+        .btn-whatsapp {
+            background: #25d366 !important;
+            border-color: #25d366 !important;
+            color: #fff !important;
+            padding: 0.9rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ebe5c !important;
+            border-color: #1ebe5c !important;
+            color: #fff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -8px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid rgba(33, 92, 92, 0.15);
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon:hover {
+            background: rgba(33, 92, 92, 0.05);
+            border-color: #215c5c;
+            transform: scale(1.05);
+        }
+
+        .contact-icon i {
+            font-size: 1.4rem;
+        }
+
+        .contact-icon .bi-whatsapp {
+            color: #25d366;
+        }
+
+        .contact-icon .bi-send,
+        .contact-icon .bi-geo-alt,
+        .contact-icon .bi-clock {
+            color: #215c5c;
+        }
+    </style>
+</head>
+
+<body>
+
     <div class="site-wrap">
-      <!-- ======= Header =======-->
-      <header
-        class="fbs__net-navbar navbar navbar-expand-lg dark"
-        aria-label="Self-Care Book Box navbar"
-      >
-        <div
-          class="container d-flex align-items-center justify-content-between"
-        >
-          <a class="navbar-brand w-auto" href="index.html">
-            <img
-              class="logo dark img-fluid"
-              src="assets/images/logo-dark.svg"
-              alt="Self-Care Book Box"
-            />
-            <img
-              class="logo light img-fluid"
-              src="assets/images/logo-light.svg"
-              alt="Self-Care Book Box"
-            />
-          </a>
 
-          <div
-            class="offcanvas offcanvas-start w-75"
-            id="fbs__net-navbars"
-            tabindex="-1"
-            aria-labelledby="fbs__net-navbarsLabel"
-          >
-            <div class="offcanvas-header">
-              <div class="offcanvas-header-logo">
-                <a
-                  class="logo-link"
-                  id="fbs__net-navbarsLabel"
-                  href="index.html"
-                >
-                  <img
-                    class="logo dark img-fluid"
-                    src="assets/images/logo-dark.svg"
-                    alt="Self-Care Book Box"
-                  />
-                  <img
-                    class="logo light img-fluid"
-                    src="assets/images/logo-light.svg"
-                    alt="Self-Care Book Box"
-                  />
+        <!-- ======= Header =======-->
+        <header class="fbs__net-navbar navbar navbar-expand-lg dark" aria-label="Self-Care Book Box navbar">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a class="navbar-brand w-auto" href="index.html">
+                    <img class="logo dark img-fluid" src="assets/images/logo-dark.svg" alt="Self-Care Book Box" />
+                    <img class="logo light img-fluid" src="assets/images/logo-light.svg" alt="Self-Care Book Box" />
                 </a>
-              </div>
-              <button
-                class="btn-close btn-close-black"
-                type="button"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="offcanvas-body align-items-lg-center">
-              <ul class="navbar-nav nav me-auto ps-lg-5 mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link scroll-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link scroll-link" href="boxes.html">Boxes</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link scroll-link" href="quiz.html">Quiz</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link scroll-link" href="gift.html">Gift</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link scroll-link active" href="contact.html"
-                    >Contact</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
 
-          <div class="ms-auto w-auto">
-            <div class="header-social d-flex align-items-center gap-1">
-              <a class="btn btn-primary py-2" href="quiz.html">Take the Quiz</a>
-              <button
-                class="fbs__net-navbar-toggler justify-content-center align-items-center ms-auto"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#fbs__net-navbars"
-                aria-controls="fbs__net-navbars"
-                aria-label="Toggle navigation"
-                aria-expanded="false"
-              >
-                <svg
-                  class="fbs__net-icon-menu"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewbox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <line x1="21" x2="3" y1="6" y2="6"></line>
-                  <line x1="15" x2="3" y1="12" y2="12"></line>
-                  <line x1="17" x2="3" y1="18" y2="18"></line>
-                </svg>
-                <svg
-                  class="fbs__net-icon-close"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewbox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M18 6 6 18"></path>
-                  <path d="m6 6 12 12"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-      <!-- End Header-->
-
-      <main>
-        <!-- ======= Page Title =======-->
-        <section
-          class="section first-section"
-          style="
-            padding-top: 130px;
-            padding-bottom: 40px;
-            background-color: rgba(33, 92, 92, 0.03);
-          "
-        >
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto text-center">
-                <span
-                  class="hero-subtitle text-uppercase"
-                  data-aos="fade-up"
-                  data-aos-delay="0"
-                  >Get in Touch</span
-                >
-                <h1 class="mb-3" data-aos="fade-up" data-aos-delay="100">
-                  Contact Us
-                </h1>
-                <p class="mb-0" data-aos="fade-up" data-aos-delay="200">
-                  Have questions about our boxes, subscriptions, or gifting?
-                  We'd love to hear from you. Reach out and we'll respond within
-                  24 hours.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ======= Contact Info & Form =======-->
-        <section
-          class="section contact__v2"
-          style="padding-top: 20px; padding-bottom: 70px"
-        >
-          <div class="container">
-            <div class="row">
-              <div class="col-md-5" data-aos="fade-up" data-aos-delay="0">
-                <div class="d-flex gap-4 flex-column">
-                  <div>
-                    <h4 class="mb-3" style="color: #215c5c">
-                      Reach Out Anytime
-                    </h4>
-                    <p>
-                      Whether you have a question about subscriptions, want to
-                      customize a gift, or just want to say hello—we're here for
-                      you.
-                    </p>
-                  </div>
-                  <div class="d-flex align-items-start gap-3">
-                    <div
-                      class="icon d-block"
-                      style="
-                        width: 50px;
-                        height: 50px;
-                        line-height: 50px;
-                        text-align: center;
-                        border: 1px solid rgba(33, 92, 92, 0.15);
-                        border-radius: 50%;
-                      "
-                    >
-                      <i
-                        class="bi bi-whatsapp"
-                        style="color: #25d366; font-size: 1.4rem"
-                      ></i>
+                <div class="offcanvas offcanvas-start w-75" id="fbs__net-navbars" tabindex="-1" aria-labelledby="fbs__net-navbarsLabel">
+                    <div class="offcanvas-header">
+                        <div class="offcanvas-header-logo">
+                            <a class="logo-link" id="fbs__net-navbarsLabel" href="index.html">
+                                <img class="logo dark img-fluid" src="assets/images/logo-dark.svg" alt="Self-Care Book Box" />
+                                <img class="logo light img-fluid" src="assets/images/logo-light.svg" alt="Self-Care Book Box" />
+                            </a>
+                        </div>
+                        <button class="btn-close btn-close-black" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                    <span
-                      ><span class="d-block fw-bold">WhatsApp</span
-                      ><strong>+1 (234) 567-8900</strong></span
-                    >
-                  </div>
-                  <div class="d-flex align-items-start gap-3">
-                    <div
-                      class="icon d-block"
-                      style="
-                        width: 50px;
-                        height: 50px;
-                        line-height: 50px;
-                        text-align: center;
-                        border: 1px solid rgba(33, 92, 92, 0.15);
-                        border-radius: 50%;
-                      "
-                    >
-                      <i
-                        class="bi bi-send"
-                        style="color: #215c5c; font-size: 1.2rem"
-                      ></i>
+                    <div class="offcanvas-body align-items-lg-center">
+                        <ul class="navbar-nav nav me-auto ps-lg-5 mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link scroll-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link scroll-link" href="boxes.html">Boxes</a></li>
+                            <li class="nav-item"><a class="nav-link scroll-link" href="quiz.html">Quiz</a></li>
+                            <li class="nav-item"><a class="nav-link scroll-link" href="gift.html">Gift</a></li>
+                            <li class="nav-item"><a class="nav-link scroll-link active" href="contact.html">Contact</a></li>
+                        </ul>
                     </div>
-                    <span
-                      ><span class="d-block fw-bold">Email</span
-                      ><strong>hannah.johnson108@icloud.com</strong></span
-                    >
-                  </div>
-                  <div class="d-flex align-items-start gap-3">
-                    <div
-                      class="icon d-block"
-                      style="
-                        width: 50px;
-                        height: 50px;
-                        line-height: 50px;
-                        text-align: center;
-                        border: 1px solid rgba(33, 92, 92, 0.15);
-                        border-radius: 50%;
-                      "
-                    >
-                      <i
-                        class="bi bi-geo-alt"
-                        style="color: #215c5c; font-size: 1.2rem"
-                      ></i>
-                    </div>
-                    <span
-                      ><span class="d-block fw-bold">Address</span>
-                      <address class="mb-0">
-                        <strong
-                          >123 Main Street Apt 4B<br />Springfield, IL
-                          62701</strong
-                        >
-                      </address></span
-                    >
-                  </div>
-                  <div class="d-flex align-items-start gap-3">
-                    <div
-                      class="icon d-block"
-                      style="
-                        width: 50px;
-                        height: 50px;
-                        line-height: 50px;
-                        text-align: center;
-                        border: 1px solid rgba(33, 92, 92, 0.15);
-                        border-radius: 50%;
-                      "
-                    >
-                      <i
-                        class="bi bi-clock"
-                        style="color: #215c5c; font-size: 1.2rem"
-                      ></i>
-                    </div>
-                    <span
-                      ><span class="d-block fw-bold">Business Hours</span>
-                      <strong>Mon–Fri: 9am – 6pm EST</strong></span
-                    >
-                  </div>
                 </div>
-              </div>
-              <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-                <div
-                  class="form-wrapper p-4 rounded-4"
-                  style="
-                    background: white;
-                    border: 1px solid rgba(33, 92, 92, 0.08);
-                  "
-                >
-                  <h4 class="mb-4" style="color: #215c5c">Send Us a Message</h4>
-                  <form
-                    id="contactForm"
-                    action="https://wa.me/2347018562146"
-                    method="GET"
-                    target="_blank"
-                  >
-                    <div class="row g-3 mb-3">
-                      <div class="col-md-6">
-                        <label class="form-label fw-semibold"
-                          >Full Name <span class="text-danger">*</span></label
-                        >
-                        <input
-                          class="form-control"
-                          type="text"
-                          name="text"
-                          placeholder="Your full name"
-                          required
-                        />
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label fw-semibold"
-                          >Email Address
-                          <span class="text-danger">*</span></label
-                        >
-                        <input
-                          class="form-control"
-                          type="email"
-                          name="text"
-                          placeholder="your@email.com"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="row g-3 mb-3">
-                      <div class="col-md-6">
-                        <label class="form-label fw-semibold"
-                          >Phone Number</label
-                        >
-                        <input
-                          class="form-control"
-                          type="tel"
-                          name="text"
-                          placeholder="+1 (234) 567-8900"
-                        />
-                      </div>
-                      <div class="col-md-6">
-                        <label class="form-label fw-semibold">Subject</label>
-                        <input
-                          class="form-control"
-                          type="text"
-                          name="text"
-                          placeholder="What's this about?"
-                        />
-                      </div>
-                    </div>
-                    <div class="row g-3 mb-4">
-                      <div class="col-md-12">
-                        <label class="form-label fw-semibold"
-                          >Message <span class="text-danger">*</span></label
-                        >
-                        <textarea
-                          class="form-control"
-                          name="text"
-                          rows="5"
-                          placeholder="Tell us about your self-care needs, questions, or feedback..."
-                          required
-                        ></textarea>
-                      </div>
-                    </div>
-                    <button
-                      class="btn btn-primary fw-semibold"
-                      type="submit"
-                      style="
-                        background: #25d366;
-                        border-color: #25d366;
-                        padding: 0.9rem 2.5rem;
-                      "
-                    >
-                      <i class="bi bi-whatsapp me-2"></i> Send via WhatsApp
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <!-- ======= Footer =======-->
-        <footer class="footer pt-5 pb-5">
-          <div class="container">
-
-            <div class="row justify-content-between mb-5 g-xl-5">
-              <div class="col-md-4 mb-5 mb-lg-0">
-                <h3 class="mb-3">About Self-Care Book Box</h3>
-                <p class="mb-4">
-                  We believe that self-care isn't selfish—it's necessary. Every
-                  box is thoughtfully curated to help you relax, recharge, and
-                  turn the page to your next great adventure.
-                </p>
-              </div>
-              <div class="col-md-7">
-                <div class="row g-2">
-                  <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                    <h3 class="mb-3">Quick Links</h3>
-                    <ul class="list-unstyled">
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="boxes.html">Our Boxes</a></li>
-                      <li><a href="quiz.html">Take the Quiz</a></li>
-                      <li><a href="gift.html">Gift Boxes</a></li>
-                      <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                    <h3 class="mb-3">Box Options</h3>
-                    <ul class="list-unstyled">
-                      <li><a href="boxes.html#women">Women's Box</a></li>
-                      <li><a href="boxes.html#men">Men's Box</a></li>
-                      <li><a href="boxes.html#couples">Couples Box</a></li>
-                      <li><a href="boxes.html#surprise">Surprise Me!</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 quick-contact">
-                    <h3 class="mb-3">Contact</h3>
-                    <p class="d-flex mb-3">
-                      <i class="bi bi-geo-alt-fill me-3"></i
-                      ><span
-                        >123 Main Street Apt 4B<br />Springfield, IL 62701</span
-                      >
-                    </p>
-                    <a
-                      class="d-flex mb-3"
-                      href="mailto:hannah.johnson108@icloud.com"
-                      ><i class="bi bi-envelope-fill me-3"></i
-                      ><span>hannah.johnson108@icloud.com</span></a
-                    >
-                    <a class="d-flex mb-3" href="tel://+12345678900"
-                      ><i class="bi bi-telephone-fill me-3"></i
-                      ><span>+1 (234) 567-8900</span></a
-                    >
-                  </div>
+                <div class="ms-auto w-auto">
+                    <div class="header-social d-flex align-items-center gap-1">
+                        <a class="btn btn-primary py-2" href="quiz.html">Take the Quiz</a>
+                        <button class="fbs__net-navbar-toggler justify-content-center align-items-center ms-auto" data-bs-toggle="offcanvas" data-bs-target="#fbs__net-navbars" aria-controls="fbs__net-navbars" aria-label="Toggle navigation" aria-expanded="false">
+                            <svg class="fbs__net-icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="21" x2="3" y1="6" y2="6"></line>
+                                <line x1="15" x2="3" y1="12" y2="12"></line>
+                                <line x1="17" x2="3" y1="18" y2="18"></line>
+                            </svg>
+                            <svg class="fbs__net-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 6 6 18"></path>
+                                <path d="m6 6 12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="row credits pt-3">
-              <div class="col-xl-8 text-center text-xl-start mb-3 mb-xl-0">
-                &copy;
-                <script>
-                  document.write(new Date().getFullYear());
-                </script>
-                Self-Care Book Box. All rights reserved. Made with
-                <i class="bi bi-heart-fill text-danger"></i> by Hannah Johnson
-              </div>
-              <div
-                class="col-xl-4 justify-content-start justify-content-xl-end quick-links d-flex flex-column flex-xl-row text-center text-xl-start gap-1"
-              >
-                <span
-                  >📖 Escape the Noise. Open a Book. Rediscover Yourself.</span
-                >
-              </div>
-            </div>
-          </div>
-        </footer>
-      </main>
+        </header>
+        <!-- End Header-->
+
+        <main>
+
+            <!-- ======= Page Title =======-->
+            <section class="section first-section" style="padding-top:130px; padding-bottom:40px; background-color: rgba(33,92,92,0.03);">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto text-center">
+                            <span class="hero-subtitle text-uppercase" data-aos="fade-up" data-aos-delay="0">Get in Touch</span>
+                            <h1 class="mb-3" data-aos="fade-up" data-aos-delay="100">Contact Us</h1>
+                            <p class="mb-0" data-aos="fade-up" data-aos-delay="200">
+                                Have questions about our boxes, subscriptions, or gifting?
+                                We'd love to hear from you. Reach out and we'll respond within
+                                24 hours.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======= Contact Info & Form =======-->
+            <section class="section contact__v2" style="padding-top:20px; padding-bottom:70px;">
+                <div class="container">
+                    <div class="row">
+                        <!-- Left: Contact Info -->
+                        <div class="col-md-5" data-aos="fade-up" data-aos-delay="0">
+                            <div class="d-flex gap-4 flex-column">
+                                <div>
+                                    <h4 class="mb-3" style="color: #215c5c;">Reach Out Anytime</h4>
+                                    <p>
+                                        Whether you have a question about subscriptions, want to
+                                        customize a gift, or just want to say hello—we're here for
+                                        you.
+                                    </p>
+                                </div>
+
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="contact-icon"><i class="bi bi-whatsapp"></i></div>
+                                    <span><span class="d-block fw-bold">WhatsApp</span><strong>+234 701 856 2146</strong></span>
+                                </div>
+
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="contact-icon"><i class="bi bi-send"></i></div>
+                                    <span><span class="d-block fw-bold">Email</span><strong>hannah.johnson108@icloud.com</strong></span>
+                                </div>
+
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+                                    <span><span class="d-block fw-bold">Address</span>
+                                        <address class="mb-0"><strong>123 Main Street Apt 4B<br />Springfield, IL 62701</strong></address></span>
+                                </div>
+
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="contact-icon"><i class="bi bi-clock"></i></div>
+                                    <span><span class="d-block fw-bold">Business Hours</span>
+                                        <strong>Mon–Fri: 9am – 6pm EST</strong></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Contact Form -->
+                        <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+                            <div class="form-wrapper p-4 rounded-4" style="background:white; border:1px solid rgba(33,92,92,0.08);">
+                                <h4 class="mb-4" style="color: #215c5c;">Send Us a Message</h4>
+
+                                <form id="contactForm" method="GET" target="_blank">
+
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
+                                            <input class="form-control" type="text" id="fullName" name="fullName" placeholder="Your full name" required />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Email Address <span class="text-danger">*</span></label>
+                                            <input class="form-control" type="email" id="email" name="email" placeholder="your@email.com" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Phone Number</label>
+                                            <input class="form-control" type="tel" id="phone" name="phone" placeholder="+234 800 000 0000" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Subject</label>
+                                            <select class="form-select" id="subject" name="subject">
+                                                <option value="General Inquiry">General Inquiry</option>
+                                                <option value="Subscription Question">Subscription Question</option>
+                                                <option value="Gift Box Question">Gift Box Question</option>
+                                                <option value="Customization Request">Customization Request</option>
+                                                <option value="Feedback">Feedback</option>
+                                                <option value="Partnership">Partnership / Collaboration</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-3 mb-4">
+                                        <div class="col-md-12">
+                                            <label class="form-label fw-semibold">Message <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your self-care needs, questions, or feedback..." required></textarea>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-whatsapp" type="submit">
+                                        <i class="bi bi-whatsapp me-2"></i> Send via WhatsApp
+                                    </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======= Footer =======-->
+            <footer class="footer pt-5 pb-5">
+                <div class="container">
+                    <div class="row justify-content-between mb-5 g-xl-5">
+                        <div class="col-md-4 mb-5 mb-lg-0">
+                            <h3 class="mb-3">About Self-Care Book Box</h3>
+                            <p class="mb-4">
+                                We believe that self-care isn't selfish—it's necessary. Every
+                                box is thoughtfully curated to help you relax, recharge, and
+                                turn the page to your next great adventure.
+                            </p>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row g-2">
+                                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                    <h3 class="mb-3">Quick Links</h3>
+                                    <ul class="list-unstyled">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="boxes.html">Our Boxes</a></li>
+                                        <li><a href="quiz.html">Take the Quiz</a></li>
+                                        <li><a href="gift.html">Gift Boxes</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                    <h3 class="mb-3">Box Options</h3>
+                                    <ul class="list-unstyled">
+                                        <li><a href="boxes.html#women">Women's Box</a></li>
+                                        <li><a href="boxes.html#men">Men's Box</a></li>
+                                        <li><a href="boxes.html#couples">Couples Box</a></li>
+                                        <li><a href="boxes.html#surprise">Surprise Me!</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 quick-contact">
+                                    <h3 class="mb-3">Contact</h3>
+                                    <p class="d-flex mb-3">
+                                        <i class="bi bi-geo-alt-fill me-3"></i>
+                                        <span>123 Main Street Apt 4B<br />Springfield, IL 62701</span>
+                                    </p>
+                                    <a class="d-flex mb-3" href="mailto:hannah.johnson108@icloud.com">
+                                        <i class="bi bi-envelope-fill me-3"></i>
+                                        <span>hannah.johnson108@icloud.com</span>
+                                    </a>
+                                    <a class="d-flex mb-3" href="tel://+2347018562146">
+                                        <i class="bi bi-telephone-fill me-3"></i>
+                                        <span>+234 701 856 2146</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row credits pt-3">
+                        <div class="col-xl-8 text-center text-xl-start mb-3 mb-xl-0">
+                            &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            Self-Care Book Box. All rights reserved. Made with
+                            <i class="bi bi-heart-fill text-danger"></i> by Hannah Johnson
+                        </div>
+                        <div class="col-xl-4 justify-content-start justify-content-xl-end quick-links d-flex flex-column flex-xl-row text-center text-xl-start gap-1">
+                            <span>📖 Escape the Noise. Open a Book. Rediscover Yourself.</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
     </div>
 
     <button id="back-to-top"><i class="bi bi-arrow-up-short"></i></button>
 
     <!-- ======= Three.js =======-->
     <script>
-      (function () {
-        if (typeof THREE === "undefined") return;
-        const container = document.createElement("div");
-        container.style.position = "fixed";
-        container.style.top = "0";
-        container.style.left = "0";
-        container.style.width = "100%";
-        container.style.height = "100%";
-        container.style.pointerEvents = "none";
-        container.style.zIndex = "0";
-        document.body.prepend(container);
+        (function() {
+            if (typeof THREE === "undefined") return;
+            const container = document.createElement("div");
+            container.style.position = "fixed";
+            container.style.top = "0";
+            container.style.left = "0";
+            container.style.width = "100%";
+            container.style.height = "100%";
+            container.style.pointerEvents = "none";
+            container.style.zIndex = "0";
+            document.body.prepend(container);
 
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(
-          75,
-          window.innerWidth / window.innerHeight,
-          0.1,
-          1000,
-        );
-        const renderer = new THREE.WebGLRenderer({
-          alpha: true,
-          antialias: true,
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            const geometry = new THREE.BufferGeometry();
+            const count = 120;
+            const positions = new Float32Array(count * 3);
+            for (let i = 0; i < count * 3; i++) {
+                positions[i] = (Math.random() - 0.5) * 20;
+            }
+            geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+
+            const material = new THREE.PointsMaterial({
+                color: 0x1e4a4a,
+                size: 0.05,
+                transparent: true,
+                opacity: 0.35,
+                blending: THREE.AdditiveBlending,
+            });
+            const particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+            camera.position.z = 8;
+
+            let mouseX = 0,
+                mouseY = 0;
+            document.addEventListener("mousemove", (e) => {
+                mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                particles.rotation.x += 0.0003;
+                particles.rotation.y += 0.0005;
+                particles.rotation.x += (mouseY * 0.01 - particles.rotation.x) * 0.02;
+                particles.rotation.y += (mouseX * 0.01 - particles.rotation.y) * 0.02;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener("resize", () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        })();
+    </script>
+
+    <!-- ======= Contact Form WhatsApp JS =======-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // ===== COLLECT ALL DATA =====
+                const fullName = document.getElementById('fullName').value || 'Not provided';
+                const email = document.getElementById('email').value || 'Not provided';
+                const phone = document.getElementById('phone').value || 'Not provided';
+                const subject = document.getElementById('subject').value || 'Not specified';
+                const message = document.getElementById('message').value || 'Not provided';
+
+                // ===== BUILD BEAUTIFUL WHATSAPP MESSAGE =====
+                let whatsappMessage = '📬 *NEW CONTACT FORM MESSAGE* 📬\n';
+                whatsappMessage += '═══════════════════════════════\n\n';
+
+                whatsappMessage += '👤 *SENDER INFORMATION*\n';
+                whatsappMessage += `• Full Name: ${fullName}\n`;
+                whatsappMessage += `• Email: ${email}\n`;
+                whatsappMessage += `• Phone: ${phone}\n\n`;
+
+                whatsappMessage += '📋 *MESSAGE DETAILS*\n';
+                whatsappMessage += `• Subject: ${subject}\n`;
+                whatsappMessage += `• Message:\n${message}\n\n`;
+
+                whatsappMessage += '═══════════════════════════════\n';
+                whatsappMessage += '🌟 *Thank you for reaching out!* 🌟\n';
+                whatsappMessage += 'We will get back to you within 24 hours.';
+
+                // ===== ENCODE AND SEND =====
+                const url = `https://wa.me/2347018562146?text=${encodeURIComponent(whatsappMessage)}`;
+                window.open(url, '_blank');
+            });
+
         });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        container.appendChild(renderer.domElement);
-
-        const geometry = new THREE.BufferGeometry();
-        const count = 120;
-        const positions = new Float32Array(count * 3);
-        for (let i = 0; i < count * 3; i++) {
-          positions[i] = (Math.random() - 0.5) * 20;
-        }
-        geometry.setAttribute(
-          "position",
-          new THREE.BufferAttribute(positions, 3),
-        );
-
-        const material = new THREE.PointsMaterial({
-          color: 0x1e4a4a,
-          size: 0.05,
-          transparent: true,
-          opacity: 0.35,
-          blending: THREE.AdditiveBlending,
-        });
-        const particles = new THREE.Points(geometry, material);
-        scene.add(particles);
-        camera.position.z = 8;
-
-        let mouseX = 0,
-          mouseY = 0;
-        document.addEventListener("mousemove", (e) => {
-          mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-          mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-        });
-
-        function animate() {
-          requestAnimationFrame(animate);
-          particles.rotation.x += 0.0003;
-          particles.rotation.y += 0.0005;
-          particles.rotation.x += (mouseY * 0.01 - particles.rotation.x) * 0.02;
-          particles.rotation.y += (mouseX * 0.01 - particles.rotation.y) * 0.02;
-          renderer.render(scene, camera);
-        }
-        animate();
-
-        window.addEventListener("resize", () => {
-          camera.aspect = window.innerWidth / window.innerHeight;
-          camera.updateProjectionMatrix();
-          renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-      })();
     </script>
 
     <script src="assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
@@ -569,11 +441,13 @@
     <script src="assets/vendors/purecounter/purecounter.js"></script>
     <script src="assets/js/custom.js"></script>
     <script>
-      AOS.init({
-        duration: 600,
-        once: true,
-        easing: "ease-out-cubic",
-      });
+        AOS.init({
+            duration: 600,
+            once: true,
+            easing: "ease-out-cubic",
+        });
     </script>
-  </body>
+
+</body>
+
 </html>
