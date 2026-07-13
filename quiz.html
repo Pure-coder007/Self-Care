@@ -1,0 +1,1978 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Preference Quiz &mdash; Self-Care Book Box</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendors/bootstrap-icons/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendors/glightbox/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendors/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="assets/vendors/aos/aos.css" rel="stylesheet" />
+
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <script>
+      (function () {
+        const storedTheme = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-bs-theme", storedTheme);
+      })();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+      .quiz-section {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(33, 92, 92, 0.08);
+      }
+
+      .quiz-section .form-check {
+        padding-left: 2.2rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .quiz-section .form-check-input {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-top: 0.2rem;
+        border-color: #215c5c;
+      }
+
+      .quiz-section .form-check-input:checked {
+        background-color: #215c5c;
+        border-color: #215c5c;
+      }
+
+      .quiz-section label {
+        font-weight: 500;
+        color: #1e1e2a;
+      }
+
+      .quiz-section .form-label {
+        font-weight: 600;
+        color: #215c5c;
+        font-size: 0.95rem;
+      }
+
+      .step-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 2rem;
+      }
+
+      .step-indicator .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #d4e0e0;
+        transition: 0.3s;
+      }
+
+      .step-indicator .dot.active {
+        background: #215c5c;
+        width: 28px;
+        border-radius: 20px;
+      }
+
+      .step-indicator .dot.done {
+        background: #215c5c;
+      }
+
+      .quiz-step {
+        display: none;
+        animation: fadeIn 0.4s ease;
+      }
+
+      .quiz-step.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="site-wrap">
+      <!-- ======= Header =======-->
+      <header
+        class="fbs__net-navbar navbar navbar-expand-lg dark"
+        aria-label="Self-Care Book Box navbar"
+      >
+        <div
+          class="container d-flex align-items-center justify-content-between"
+        >
+          <a class="navbar-brand w-auto" href="index.html">
+            <img
+              class="logo dark img-fluid"
+              src="assets/images/logo-dark.svg"
+              alt="Self-Care Book Box"
+            />
+            <img
+              class="logo light img-fluid"
+              src="assets/images/logo-light.svg"
+              alt="Self-Care Book Box"
+            />
+          </a>
+
+          <div
+            class="offcanvas offcanvas-start w-75"
+            id="fbs__net-navbars"
+            tabindex="-1"
+            aria-labelledby="fbs__net-navbarsLabel"
+          >
+            <div class="offcanvas-header">
+              <div class="offcanvas-header-logo">
+                <a
+                  class="logo-link"
+                  id="fbs__net-navbarsLabel"
+                  href="index.html"
+                >
+                  <img
+                    class="logo dark img-fluid"
+                    src="assets/images/logo-dark.svg"
+                    alt="Self-Care Book Box"
+                  />
+                  <img
+                    class="logo light img-fluid"
+                    src="assets/images/logo-light.svg"
+                    alt="Self-Care Book Box"
+                  />
+                </a>
+              </div>
+              <button
+                class="btn-close btn-close-black"
+                type="button"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body align-items-lg-center">
+              <ul class="navbar-nav nav me-auto ps-lg-5 mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link scroll-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link scroll-link" href="boxes.html">Boxes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link scroll-link active" href="quiz.html"
+                    >Quiz</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link scroll-link" href="gift.html">Gift</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link scroll-link" href="contact.html"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ms-auto w-auto">
+            <div class="header-social d-flex align-items-center gap-1">
+              <a class="btn btn-primary py-2" href="quiz.html">Take the Quiz</a>
+              <button
+                class="fbs__net-navbar-toggler justify-content-center align-items-center ms-auto"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#fbs__net-navbars"
+                aria-controls="fbs__net-navbars"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+              >
+                <svg
+                  class="fbs__net-icon-menu"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewbox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="21" x2="3" y1="6" y2="6"></line>
+                  <line x1="15" x2="3" y1="12" y2="12"></line>
+                  <line x1="17" x2="3" y1="18" y2="18"></line>
+                </svg>
+                <svg
+                  class="fbs__net-icon-close"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewbox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M18 6 6 18"></path>
+                  <path d="m6 6 12 12"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- End Header-->
+
+      <main>
+        <!-- ======= Page Title =======-->
+        <section
+          class="section first-section"
+          style="padding-top: 130px; padding-bottom: 30px"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto text-center">
+                <span
+                  class="hero-subtitle text-uppercase"
+                  data-aos="fade-up"
+                  data-aos-delay="0"
+                  >Build Your Perfect Box</span
+                >
+                <h1 class="mb-3" data-aos="fade-up" data-aos-delay="100">
+                  Tell Us About Yourself
+                </h1>
+                <p class="mb-0" data-aos="fade-up" data-aos-delay="200">
+                  "Because Self-Care Isn't Selfish—It's Necessary." Help us
+                  curate the perfect reading and relaxation experience just for
+                  you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======= Quiz Form =======-->
+        <section class="section" style="padding-top: 0; padding-bottom: 70px">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10 mx-auto">
+                <div
+                  class="quiz-section"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  <!-- Step Indicator -->
+                  <div class="step-indicator">
+                    <span class="dot active" data-step="1"></span>
+                    <span class="dot" data-step="2"></span>
+                    <span class="dot" data-step="3"></span>
+                    <span class="dot" data-step="4"></span>
+                    <span class="dot" data-step="5"></span>
+                  </div>
+
+                  <form
+                    id="quizForm"
+                    action="https://wa.me/2347018562146"
+                    method="GET"
+                    target="_blank"
+                  >
+                    <!-- ===== STEP 1: Which Box ===== -->
+                    <div class="quiz-step active" data-step="1">
+                      <h4 class="mb-3">Which Box Are You Interested In?</h4>
+                      <div class="row g-3 mb-4">
+                        <div class="col-md-3">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="box"
+                              id="boxWomen"
+                              value="Women's Self-Care Box"
+                              checked
+                            />
+                            <label class="form-check-label" for="boxWomen"
+                              >Women's Box</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="box"
+                              id="boxMen"
+                              value="Men's Self-Care Box"
+                            />
+                            <label class="form-check-label" for="boxMen"
+                              >Men's Box</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="box"
+                              id="boxCouples"
+                              value="Couples Self-Care Box"
+                            />
+                            <label class="form-check-label" for="boxCouples"
+                              >Couples Box</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="box"
+                              id="boxSurprise"
+                              value="Surprise Me!"
+                            />
+                            <label class="form-check-label" for="boxSurprise"
+                              >Surprise Me!</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <button type="button" class="btn btn-primary next-step">
+                        Next <i class="bi bi-arrow-right"></i>
+                      </button>
+                    </div>
+
+                    <!-- ===== STEP 2: Book Preferences ===== -->
+                    <div class="quiz-step" data-step="2">
+                      <h4 class="mb-3">What Genres Do You LOVE?</h4>
+                      <div class="row g-2 mb-4">
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Romance"
+                              id="g1"
+                            /><label class="form-check-label" for="g1"
+                              >Romance</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Mystery"
+                              id="g2"
+                            /><label class="form-check-label" for="g2"
+                              >Mystery</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Thriller"
+                              id="g3"
+                            /><label class="form-check-label" for="g3"
+                              >Thriller</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Fantasy"
+                              id="g4"
+                            /><label class="form-check-label" for="g4"
+                              >Fantasy</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Science Fiction"
+                              id="g5"
+                            /><label class="form-check-label" for="g5"
+                              >Sci-Fi</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Historical Fiction"
+                              id="g6"
+                            /><label class="form-check-label" for="g6"
+                              >Historical Fiction</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Self-Help"
+                              id="g7"
+                            /><label class="form-check-label" for="g7"
+                              >Self-Help</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Personal Growth"
+                              id="g8"
+                            /><label class="form-check-label" for="g8"
+                              >Personal Growth</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Business"
+                              id="g9"
+                            /><label class="form-check-label" for="g9"
+                              >Business</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Finance"
+                              id="g10"
+                            /><label class="form-check-label" for="g10"
+                              >Finance</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Biography"
+                              id="g11"
+                            /><label class="form-check-label" for="g11"
+                              >Biography</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Christian/Inspirational"
+                              id="g12"
+                            /><label class="form-check-label" for="g12"
+                              >Christian/Inspirational</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Health & Wellness"
+                              id="g13"
+                            /><label class="form-check-label" for="g13"
+                              >Health & Wellness</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Cookbooks"
+                              id="g14"
+                            /><label class="form-check-label" for="g14"
+                              >Cookbooks</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Poetry"
+                              id="g15"
+                            /><label class="form-check-label" for="g15"
+                              >Poetry</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Horror"
+                              id="g16"
+                            /><label class="form-check-label" for="g16"
+                              >Horror</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Young Adult"
+                              id="g17"
+                            /><label class="form-check-label" for="g17"
+                              >Young Adult</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="form-check">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genres"
+                              value="Other"
+                              id="g18"
+                            /><label class="form-check-label" for="g18"
+                              >Other:
+                              <input
+                                type="text"
+                                class="form-control form-control-sm d-inline-block w-auto"
+                                placeholder="Specify"
+                                style="max-width: 200px"
+                            /></label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mb-4">
+                        <label class="form-label"
+                          >What genres do you DISLIKE?</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="dislike"
+                          placeholder="e.g., Horror, Romance, etc."
+                        />
+                      </div>
+                      <div class="d-flex gap-2">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary prev-step"
+                        >
+                          <i class="bi bi-arrow-left"></i> Back
+                        </button>
+                        <button type="button" class="btn btn-primary next-step">
+                          Next <i class="bi bi-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- ===== STEP 3: Reading Style & Drinks ===== -->
+                    <div class="quiz-step" data-step="3">
+                      <h4 class="mb-3">Reading Style &amp; Favorite Drinks</h4>
+                      <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                          <label class="form-label">I prefer:</label>
+                          <div class="d-flex gap-3">
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="binding"
+                                value="Paperback"
+                                id="pb"
+                                checked
+                              /><label class="form-check-label" for="pb"
+                                >Paperback</label
+                              >
+                            </div>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="binding"
+                                value="Hardcover"
+                                id="hc"
+                              /><label class="form-check-label" for="hc"
+                                >Hardcover</label
+                              >
+                            </div>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="binding"
+                                value="Either"
+                                id="either"
+                              /><label class="form-check-label" for="either"
+                                >Either</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label"
+                            >How often do you read?</label
+                          >
+                          <select class="form-select" name="reading_frequency">
+                            <option value="Daily">Daily</option>
+                            <option value="Weekly" selected>Weekly</option>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Occasionally">Occasionally</option>
+                            <option value="I'm just getting started">
+                              I'm just getting started
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row g-3 mb-4">
+                        <div class="col-md-12">
+                          <label class="form-label">Favorite Drinks</label>
+                          <div class="row g-2">
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="drinks"
+                                  value="Coffee"
+                                  id="d1"
+                                /><label class="form-check-label" for="d1"
+                                  >Coffee</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="drinks"
+                                  value="Herbal Tea"
+                                  id="d2"
+                                /><label class="form-check-label" for="d2"
+                                  >Herbal Tea</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="drinks"
+                                  value="Green Tea"
+                                  id="d3"
+                                /><label class="form-check-label" for="d3"
+                                  >Green Tea</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="drinks"
+                                  value="Black Tea"
+                                  id="d4"
+                                /><label class="form-check-label" for="d4"
+                                  >Black Tea</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="drinks"
+                                  value="Chai Tea"
+                                  id="d5"
+                                /><label class="form-check-label" for="d5"
+                                  >Chai Tea</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="drinks"
+                                  value="Hot Chocolate"
+                                  id="d6"
+                                /><label class="form-check-label" for="d6"
+                                  >Hot Chocolate</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="drinks"
+                                  value="I don't drink hot beverages"
+                                  id="d7"
+                                /><label class="form-check-label" for="d7"
+                                  >No hot beverages</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Favorite Flavor:</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="favorite_flavor"
+                            placeholder="e.g., Vanilla, Caramel, Berry"
+                          />
+                        </div>
+                      </div>
+                      <div class="d-flex gap-2">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary prev-step"
+                        >
+                          <i class="bi bi-arrow-left"></i> Back
+                        </button>
+                        <button type="button" class="btn btn-primary next-step">
+                          Next <i class="bi bi-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- ===== STEP 4: Snacks & Self-Care ===== -->
+                    <div class="quiz-step" data-step="4">
+                      <h4 class="mb-3">Snacks &amp; Self-Care Favorites</h4>
+                      <div class="row g-3 mb-4">
+                        <div class="col-md-12">
+                          <label class="form-label">Favorite Snacks</label>
+                          <div class="row g-2">
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="snacks"
+                                  value="Chocolate"
+                                  id="s1"
+                                /><label class="form-check-label" for="s1"
+                                  >Chocolate</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="snacks"
+                                  value="Cookies"
+                                  id="s2"
+                                /><label class="form-check-label" for="s2"
+                                  >Cookies</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="snacks"
+                                  value="Trail Mix"
+                                  id="s3"
+                                /><label class="form-check-label" for="s3"
+                                  >Trail Mix</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="snacks"
+                                  value="Popcorn"
+                                  id="s4"
+                                /><label class="form-check-label" for="s4"
+                                  >Popcorn</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="snacks"
+                                  value="Granola Bars"
+                                  id="s5"
+                                /><label class="form-check-label" for="s5"
+                                  >Granola Bars</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="snacks"
+                                  value="Chips"
+                                  id="s6"
+                                /><label class="form-check-label" for="s6"
+                                  >Chips</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="snacks"
+                                  value="Candy"
+                                  id="s7"
+                                /><label class="form-check-label" for="s7"
+                                  >Candy</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="snacks"
+                                  value="Healthy Snacks"
+                                  id="s8"
+                                /><label class="form-check-label" for="s8"
+                                  >Healthy Snacks</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Food Allergies:</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="allergies"
+                            placeholder="e.g., Nuts, Dairy, Gluten"
+                          />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label"
+                            >Foods You Don't Like:</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="dislike_foods"
+                            placeholder="e.g., Dark chocolate, Spicy"
+                          />
+                        </div>
+                      </div>
+                      <div class="row g-3 mb-4">
+                        <div class="col-md-12">
+                          <label class="form-label"
+                            >Self-Care Items You Would Enjoy</label
+                          >
+                          <div class="row g-2">
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Candles"
+                                  id="i1"
+                                /><label class="form-check-label" for="i1"
+                                  >Candles</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Bath Bombs"
+                                  id="i2"
+                                /><label class="form-check-label" for="i2"
+                                  >Bath Bombs</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Bath Salts"
+                                  id="i3"
+                                /><label class="form-check-label" for="i3"
+                                  >Bath Salts</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Essential Oils"
+                                  id="i4"
+                                /><label class="form-check-label" for="i4"
+                                  >Essential Oils</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Face Masks"
+                                  id="i5"
+                                /><label class="form-check-label" for="i5"
+                                  >Face Masks</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Journals"
+                                  id="i6"
+                                /><label class="form-check-label" for="i6"
+                                  >Journals</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Coloring Books"
+                                  id="i7"
+                                /><label class="form-check-label" for="i7"
+                                  >Coloring Books</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Adult Coloring Pencils"
+                                  id="i8"
+                                /><label class="form-check-label" for="i8"
+                                  >Coloring Pencils</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Pens"
+                                  id="i9"
+                                /><label class="form-check-label" for="i9"
+                                  >Pens</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Bookmarks"
+                                  id="i10"
+                                /><label class="form-check-label" for="i10"
+                                  >Bookmarks</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Cozy Socks"
+                                  id="i11"
+                                /><label class="form-check-label" for="i11"
+                                  >Cozy Socks</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Blankets"
+                                  id="i12"
+                                /><label class="form-check-label" for="i12"
+                                  >Blankets</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Mugs"
+                                  id="i13"
+                                /><label class="form-check-label" for="i13"
+                                  >Mugs</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Positive Affirmation Cards"
+                                  id="i14"
+                                /><label class="form-check-label" for="i14"
+                                  >Affirmation Cards</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Stress Ball"
+                                  id="i15"
+                                /><label class="form-check-label" for="i15"
+                                  >Stress Ball</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Fidget Toy"
+                                  id="i16"
+                                /><label class="form-check-label" for="i16"
+                                  >Fidget Toy</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Aromatherapy"
+                                  id="i17"
+                                /><label class="form-check-label" for="i17"
+                                  >Aromatherapy</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Lip Balm"
+                                  id="i18"
+                                /><label class="form-check-label" for="i18"
+                                  >Lip Balm</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Skin Care"
+                                  id="i19"
+                                /><label class="form-check-label" for="i19"
+                                  >Skin Care</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="items"
+                                  value="Other"
+                                  id="i20"
+                                /><label class="form-check-label" for="i20"
+                                  >Other:
+                                  <input
+                                    type="text"
+                                    class="form-control form-control-sm d-inline-block w-auto"
+                                    placeholder="Specify"
+                                    style="max-width: 200px"
+                                /></label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex gap-2">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary prev-step"
+                        >
+                          <i class="bi bi-arrow-left"></i> Back
+                        </button>
+                        <button type="button" class="btn btn-primary next-step">
+                          Next <i class="bi bi-arrow-right"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- ===== STEP 5: Personal Info & Goals ===== -->
+                    <div class="quiz-step" data-step="5">
+                      <h4 class="mb-3">Almost Done! Tell Us About You</h4>
+                      <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                          <label class="form-label"
+                            >Full Name <span class="text-danger">*</span></label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="full_name"
+                            placeholder="Your full name"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label"
+                            >Email Address
+                            <span class="text-danger">*</span></label
+                          >
+                          <input
+                            type="email"
+                            class="form-control"
+                            name="email"
+                            placeholder="your@email.com"
+                            required
+                          />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label"
+                            >Phone Number (Optional)</label
+                          >
+                          <input
+                            type="tel"
+                            class="form-control"
+                            name="phone"
+                            placeholder="+1 (234) 567-8900"
+                          />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Birthday (Optional)</label>
+                          <input
+                            type="date"
+                            class="form-control"
+                            name="birthday"
+                          />
+                        </div>
+                        <div class="col-md-12">
+                          <label class="form-label"
+                            >Mailing Address
+                            <span class="text-danger">*</span></label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="address"
+                            placeholder="Street address, City, State, ZIP"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="row g-3 mb-4">
+                        <div class="col-md-12">
+                          <label class="form-label">Favorite Scents</label>
+                          <div class="row g-2">
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="scents"
+                                  value="Lavender"
+                                  id="sc1"
+                                /><label class="form-check-label" for="sc1"
+                                  >Lavender</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="scents"
+                                  value="Vanilla"
+                                  id="sc2"
+                                /><label class="form-check-label" for="sc2"
+                                  >Vanilla</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="scents"
+                                  value="Coconut"
+                                  id="sc3"
+                                /><label class="form-check-label" for="sc3"
+                                  >Coconut</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="scents"
+                                  value="Citrus"
+                                  id="sc4"
+                                /><label class="form-check-label" for="sc4"
+                                  >Citrus</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="scents"
+                                  value="Peppermint"
+                                  id="sc5"
+                                /><label class="form-check-label" for="sc5"
+                                  >Peppermint</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="scents"
+                                  value="Sandalwood"
+                                  id="sc6"
+                                /><label class="form-check-label" for="sc6"
+                                  >Sandalwood</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="scents"
+                                  value="Rose"
+                                  id="sc7"
+                                /><label class="form-check-label" for="sc7"
+                                  >Rose</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="scents"
+                                  value="Eucalyptus"
+                                  id="sc8"
+                                /><label class="form-check-label" for="sc8"
+                                  >Eucalyptus</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="scents"
+                                  value="Cinnamon"
+                                  id="sc9"
+                                /><label class="form-check-label" for="sc9"
+                                  >Cinnamon</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="scents"
+                                  value="Fresh Linen"
+                                  id="sc10"
+                                /><label class="form-check-label" for="sc10"
+                                  >Fresh Linen</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="scents"
+                                  value="Unscented"
+                                  id="sc11"
+                                /><label class="form-check-label" for="sc11"
+                                  >Unscented</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Scents You Dislike:</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="dislike_scents"
+                            placeholder="e.g., Patchouli, Musk"
+                          />
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Favorite Colors</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="colors"
+                            placeholder="e.g., Blue, Gold, Neutral Earth Tones"
+                          />
+                        </div>
+                      </div>
+                      <div class="row g-3 mb-4">
+                        <div class="col-md-12">
+                          <label class="form-label"
+                            >Wellness Goals — I would like my box to help
+                            me:</label
+                          >
+                          <div class="row g-2">
+                            <div class="col-md-4">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="goals"
+                                  value="Relax"
+                                  id="go1"
+                                /><label class="form-check-label" for="go1"
+                                  >Relax</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="goals"
+                                  value="Reduce Stress"
+                                  id="go2"
+                                /><label class="form-check-label" for="go2"
+                                  >Reduce Stress</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="goals"
+                                  value="Sleep Better"
+                                  id="go3"
+                                /><label class="form-check-label" for="go3"
+                                  >Sleep Better</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="goals"
+                                  value="Practice Self-Care"
+                                  id="go4"
+                                /><label class="form-check-label" for="go4"
+                                  >Practice Self-Care</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="goals"
+                                  value="Build Better Habits"
+                                  id="go5"
+                                /><label class="form-check-label" for="go5"
+                                  >Build Better Habits</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="goals"
+                                  value="Personal Growth"
+                                  id="go6"
+                                /><label class="form-check-label" for="go6"
+                                  >Personal Growth</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="goals"
+                                  value="Increase Motivation"
+                                  id="go7"
+                                /><label class="form-check-label" for="go7"
+                                  >Increase Motivation</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="goals"
+                                  value="Improve Mental Wellness"
+                                  id="go8"
+                                /><label class="form-check-label" for="go8"
+                                  >Improve Mental Wellness</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="goals"
+                                  value="Reduce Anxiety"
+                                  id="go9"
+                                /><label class="form-check-label" for="go9"
+                                  >Reduce Anxiety</label
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-check">
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  name="goals"
+                                  value="Find More Time for Myself"
+                                  id="go10"
+                                /><label class="form-check-label" for="go10"
+                                  >Find More Time for Myself</label
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row g-3 mb-4">
+                        <div class="col-md-12">
+                          <label class="form-label">Is This a Gift?</label>
+                          <div class="d-flex gap-3">
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="is_gift"
+                                value="Yes"
+                                id="giftYes"
+                              /><label class="form-check-label" for="giftYes"
+                                >Yes</label
+                              >
+                            </div>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="is_gift"
+                                value="No"
+                                id="giftNo"
+                                checked
+                              /><label class="form-check-label" for="giftNo"
+                                >No</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="col-md-6"
+                          id="giftOccasionWrap"
+                          style="display: none"
+                        >
+                          <label class="form-label">Occasion</label>
+                          <select class="form-select" name="gift_occasion">
+                            <option value="Birthday">Birthday</option>
+                            <option value="Anniversary">Anniversary</option>
+                            <option value="Mother's Day">Mother's Day</option>
+                            <option value="Father's Day">Father's Day</option>
+                            <option value="Christmas">Christmas</option>
+                            <option value="Valentine's Day">
+                              Valentine's Day
+                            </option>
+                            <option value="Graduation">Graduation</option>
+                            <option value="Thinking of You">
+                              Thinking of You
+                            </option>
+                            <option value="Just Because">Just Because</option>
+                          </select>
+                        </div>
+                        <div
+                          class="col-md-6"
+                          id="giftRecipientWrap"
+                          style="display: none"
+                        >
+                          <label class="form-label">Recipient's Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="gift_recipient"
+                            placeholder="Recipient's full name"
+                          />
+                        </div>
+                        <div class="col-md-12">
+                          <label class="form-label"
+                            >Anything Else We Should Know?</label
+                          >
+                          <textarea
+                            class="form-control"
+                            name="notes"
+                            rows="3"
+                            placeholder="Special requests, preferences, or anything else we should know..."
+                          ></textarea>
+                        </div>
+                      </div>
+                      <div class="d-flex gap-2">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary prev-step"
+                        >
+                          <i class="bi bi-arrow-left"></i> Back
+                        </button>
+                        <button
+                          type="submit"
+                          class="btn btn-primary"
+                          style="background: #25d366; border-color: #25d366"
+                        >
+                          <i class="bi bi-whatsapp me-2"></i> Send via WhatsApp
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======= Footer =======-->
+        <footer class="footer pt-5 pb-5">
+          <div class="container">
+            <div class="row mb-5 pb-4">
+              <div class="col-md-7">
+                <h2 class="fs-5">Join our newsletter</h2>
+                <p>
+                  Stay updated with our latest boxes, themes, and self-care
+                  tips.
+                </p>
+              </div>
+              <div class="col-md-5">
+                <form class="d-flex gap-2">
+                  <input
+                    class="form-control"
+                    type="email"
+                    placeholder="Enter your email"
+                    required=""
+                  />
+                  <button class="btn btn-primary fs-6" type="submit">
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div class="row justify-content-between mb-5 g-xl-5">
+              <div class="col-md-4 mb-5 mb-lg-0">
+                <h3 class="mb-3">About Self-Care Book Box</h3>
+                <p class="mb-4">
+                  We believe that self-care isn't selfish—it's necessary. Every
+                  box is thoughtfully curated to help you relax, recharge, and
+                  turn the page to your next great adventure.
+                </p>
+              </div>
+              <div class="col-md-7">
+                <div class="row g-2">
+                  <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="mb-3">Quick Links</h3>
+                    <ul class="list-unstyled">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="boxes.html">Our Boxes</a></li>
+                      <li><a href="quiz.html">Take the Quiz</a></li>
+                      <li><a href="gift.html">Gift Boxes</a></li>
+                      <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="mb-3">Box Options</h3>
+                    <ul class="list-unstyled">
+                      <li><a href="boxes.html#women">Women's Box</a></li>
+                      <li><a href="boxes.html#men">Men's Box</a></li>
+                      <li><a href="boxes.html#couples">Couples Box</a></li>
+                      <li><a href="boxes.html#surprise">Surprise Me!</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 quick-contact">
+                    <h3 class="mb-3">Contact</h3>
+                    <p class="d-flex mb-3">
+                      <i class="bi bi-geo-alt-fill me-3"></i
+                      ><span
+                        >123 Main Street Apt 4B<br />Springfield, IL 62701</span
+                      >
+                    </p>
+                    <a
+                      class="d-flex mb-3"
+                      href="mailto:hannah.johnson108@icloud.com"
+                      ><i class="bi bi-envelope-fill me-3"></i
+                      ><span>hannah.johnson108@icloud.com</span></a
+                    >
+                    <a class="d-flex mb-3" href="tel://+12345678900"
+                      ><i class="bi bi-telephone-fill me-3"></i
+                      ><span>+1 (234) 567-8900</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row credits pt-3">
+              <div class="col-xl-8 text-center text-xl-start mb-3 mb-xl-0">
+                &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                Self-Care Book Box. All rights reserved. Made with
+                <i class="bi bi-heart-fill text-danger"></i> by Hannah Johnson
+              </div>
+              <div
+                class="col-xl-4 justify-content-start justify-content-xl-end quick-links d-flex flex-column flex-xl-row text-center text-xl-start gap-1"
+              >
+                <span
+                  >📖 Escape the Noise. Open a Book. Rediscover Yourself.</span
+                >
+              </div>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <button id="back-to-top"><i class="bi bi-arrow-up-short"></i></button>
+
+    <!-- ======= Three.js =======-->
+    <script>
+      (function () {
+        if (typeof THREE === "undefined") return;
+        const container = document.createElement("div");
+        container.style.position = "fixed";
+        container.style.top = "0";
+        container.style.left = "0";
+        container.style.width = "100%";
+        container.style.height = "100%";
+        container.style.pointerEvents = "none";
+        container.style.zIndex = "0";
+        document.body.prepend(container);
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000,
+        );
+        const renderer = new THREE.WebGLRenderer({
+          alpha: true,
+          antialias: true,
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        const geometry = new THREE.BufferGeometry();
+        const count = 120;
+        const positions = new Float32Array(count * 3);
+        for (let i = 0; i < count * 3; i++) {
+          positions[i] = (Math.random() - 0.5) * 20;
+        }
+        geometry.setAttribute(
+          "position",
+          new THREE.BufferAttribute(positions, 3),
+        );
+
+        const material = new THREE.PointsMaterial({
+          color: 0x1e4a4a,
+          size: 0.05,
+          transparent: true,
+          opacity: 0.35,
+          blending: THREE.AdditiveBlending,
+        });
+        const particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+        camera.position.z = 8;
+
+        let mouseX = 0,
+          mouseY = 0;
+        document.addEventListener("mousemove", (e) => {
+          mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+          mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+        });
+
+        function animate() {
+          requestAnimationFrame(animate);
+          particles.rotation.x += 0.0003;
+          particles.rotation.y += 0.0005;
+          particles.rotation.x += (mouseY * 0.01 - particles.rotation.x) * 0.02;
+          particles.rotation.y += (mouseX * 0.01 - particles.rotation.y) * 0.02;
+          renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener("resize", () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+      })();
+    </script>
+
+    <!-- ======= Quiz Navigation JS =======-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const steps = document.querySelectorAll(".quiz-step");
+        const dots = document.querySelectorAll(".step-indicator .dot");
+        let currentStep = 1;
+        const totalSteps = steps.length;
+
+        function showStep(step) {
+          steps.forEach((s, i) => {
+            s.classList.toggle("active", i + 1 === step);
+          });
+          dots.forEach((d, i) => {
+            d.classList.toggle("active", i + 1 === step);
+            d.classList.toggle("done", i + 1 < step);
+          });
+          currentStep = step;
+        }
+
+        document.querySelectorAll(".next-step").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const next = currentStep + 1;
+            if (next <= totalSteps) showStep(next);
+          });
+        });
+
+        document.querySelectorAll(".prev-step").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const prev = currentStep - 1;
+            if (prev >= 1) showStep(prev);
+          });
+        });
+
+        // Gift toggle
+        document.querySelectorAll('input[name="is_gift"]').forEach((el) => {
+          el.addEventListener("change", function () {
+            const show = this.value === "Yes";
+            document.getElementById("giftOccasionWrap").style.display = show
+              ? "block"
+              : "none";
+            document.getElementById("giftRecipientWrap").style.display = show
+              ? "block"
+              : "none";
+          });
+        });
+
+        // Form submit - builds WhatsApp message with all data
+        document
+          .getElementById("quizForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const form = this;
+            const formData = new FormData(form);
+            let message = "📖 *Self-Care Book Box - Quiz Results*%0A%0A";
+
+            for (let [key, value] of formData.entries()) {
+              if (value && key !== "text") {
+                const label = key.replace(/_/g, " ").toUpperCase();
+                message += `*${label}:* ${value}%0A`;
+              }
+            }
+
+            // Handle checkboxes (multiple values)
+            const checkboxes = form.querySelectorAll(
+              'input[type="checkbox"]:checked',
+            );
+            if (checkboxes.length) {
+              message += `%0A*Selected Items:*%0A`;
+              checkboxes.forEach((cb) => {
+                message += `- ${cb.value}%0A`;
+              });
+            }
+
+            const url = `https://wa.me/2347018562146?text=${message}`;
+            window.open(url, "_blank");
+          });
+      });
+    </script>
+
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendors/gsap/gsap.min.js"></script>
+    <script src="assets/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendors/isotope/isotope.pkgd.min.js"></script>
+    <script src="assets/vendors/glightbox/glightbox.min.js"></script>
+    <script src="assets/vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendors/aos/aos.js"></script>
+    <script src="assets/vendors/purecounter/purecounter.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      AOS.init({
+        duration: 600,
+        once: true,
+        easing: "ease-out-cubic",
+      });
+    </script>
+  </body>
+</html>
