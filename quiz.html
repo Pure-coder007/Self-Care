@@ -36,25 +36,25 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(33, 92, 92, 0.08);
         }
-
+        
         .quiz-section .form-check {
             padding-left: 2.2rem;
             margin-bottom: 0.6rem;
         }
-
+        
         .quiz-section .form-check-input {
             width: 1.2rem;
             height: 1.2rem;
             margin-top: 0.2rem;
             border-color: #8B6914;
         }
-
+        
         .quiz-section .form-check-input:checked {
             background-color: #8B6914;
             border-color: #8B6914;
         }
-
         /* REMOVE BLUE BOOTSTRAP FOCUS OUTLINE */
+        
         .quiz-section .form-check-input:focus,
         .quiz-section .form-control:focus,
         .quiz-section .form-select:focus {
@@ -62,29 +62,29 @@
             box-shadow: none !important;
             border-color: #8B6914 !important;
         }
-
+        
         .quiz-section .form-check-input:focus {
             border-color: #8B6914 !important;
         }
-
+        
         .quiz-section label {
             font-weight: 500;
             color: #1e1e2a;
         }
-
+        
         .quiz-section .form-label {
             font-weight: 600;
             color: #8B6914;
             font-size: 0.95rem;
         }
-
+        
         .step-indicator {
             display: flex;
             justify-content: center;
             gap: 10px;
             margin-bottom: 2rem;
         }
-
+        
         .step-indicator .dot {
             width: 12px;
             height: 12px;
@@ -92,26 +92,26 @@
             background: #d4e0e0;
             transition: 0.3s;
         }
-
+        
         .step-indicator .dot.active {
             background: #8B6914;
             width: 28px;
             border-radius: 20px;
         }
-
+        
         .step-indicator .dot.done {
             background: #8B6914;
         }
-
+        
         .quiz-step {
             display: none;
             animation: fadeIn 0.4s ease;
         }
-
+        
         .quiz-step.active {
             display: block;
         }
-
+        
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -122,30 +122,30 @@
                 transform: translateY(0);
             }
         }
-
+        
         .form-control:focus,
         .form-select:focus {
             outline: none !important;
             box-shadow: none !important;
             border-color: #8B6914 !important;
         }
-
+        
         .btn-primary {
             background: #8B6914 !important;
             border-color: #8B6914 !important;
         }
-
+        
         .btn-primary:hover {
             background: #6B4F0F !important;
             border-color: #6B4F0F !important;
         }
-
+        
         .btn-whatsapp {
             background: #25d366 !important;
             border-color: #25d366 !important;
             color: #fff !important;
         }
-
+        
         .btn-whatsapp:hover {
             background: #1ebe5c !important;
             border-color: #1ebe5c !important;
@@ -162,16 +162,16 @@
         <header class="fbs__net-navbar navbar navbar-expand-lg dark" aria-label="Self-Care Book Box navbar">
             <div class="container d-flex align-items-center justify-content-between">
                 <a class="navbar-brand w-auto" href="index.html">
-                    <img class="logo dark img-fluid" src="assets/images/logo-dark.svg" alt="Self-Care Book Box">
-                    <img class="logo light img-fluid" src="assets/images/logo-light.svg" alt="Self-Care Book Box">
+                    <img class="logo dark img-fluid" src="assets/images/han.png" alt="Self-Care Book Box" style="width: 100px; height: 100px" />
+                    <img class="logo light img-fluid" src="assets/images/han.png" alt="Self-Care Book Box" />
                 </a>
 
                 <div class="offcanvas offcanvas-start w-75" id="fbs__net-navbars" tabindex="-1" aria-labelledby="fbs__net-navbarsLabel">
                     <div class="offcanvas-header">
                         <div class="offcanvas-header-logo">
                             <a class="logo-link" id="fbs__net-navbarsLabel" href="index.html">
-                                <img class="logo dark img-fluid" src="assets/images/logo-dark.svg" alt="Self-Care Book Box">
-                                <img class="logo light img-fluid" src="assets/images/logo-light.svg" alt="Self-Care Book Box">
+                                <img class="logo dark img-fluid" src="assets/images/han.png" alt="Self-Care Book Box" style="width: 100px; height: 100px" />
+                                <img class="logo light img-fluid" src="assets/images/han.png" alt="Self-Care Book Box" />
                             </a>
                         </div>
                         <button class="btn-close btn-close-black" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -276,24 +276,60 @@
                                     <div class="quiz-step" data-step="2">
                                         <h4 class="mb-3">What Genres Do You LOVE?</h4>
                                         <div class="row g-2 mb-4">
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Romance" id="g1"><label class="form-check-label" for="g1">Romance</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Mystery" id="g2"><label class="form-check-label" for="g2">Mystery</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Thriller" id="g3"><label class="form-check-label" for="g3">Thriller</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Fantasy" id="g4"><label class="form-check-label" for="g4">Fantasy</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Science Fiction" id="g5"><label class="form-check-label" for="g5">Sci-Fi</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Historical Fiction" id="g6"><label class="form-check-label" for="g6">Historical Fiction</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Self-Help" id="g7"><label class="form-check-label" for="g7">Self-Help</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Personal Growth" id="g8"><label class="form-check-label" for="g8">Personal Growth</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Business" id="g9"><label class="form-check-label" for="g9">Business</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Finance" id="g10"><label class="form-check-label" for="g10">Finance</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Biography" id="g11"><label class="form-check-label" for="g11">Biography</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Christian/Inspirational" id="g12"><label class="form-check-label" for="g12">Christian/Inspirational</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Health & Wellness" id="g13"><label class="form-check-label" for="g13">Health & Wellness</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Cookbooks" id="g14"><label class="form-check-label" for="g14">Cookbooks</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Poetry" id="g15"><label class="form-check-label" for="g15">Poetry</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Horror" id="g16"><label class="form-check-label" for="g16">Horror</label></div></div>
-                                            <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Young Adult" id="g17"><label class="form-check-label" for="g17">Young Adult</label></div></div>
-                                            <div class="col-md-8"><div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Other" id="g18"><label class="form-check-label" for="g18">Other: <input type="text" class="form-control form-control-sm d-inline-block w-auto" placeholder="Specify" style="max-width:200px;"></label></div></div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Romance" id="g1"><label class="form-check-label" for="g1">Romance</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Mystery" id="g2"><label class="form-check-label" for="g2">Mystery</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Thriller" id="g3"><label class="form-check-label" for="g3">Thriller</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Fantasy" id="g4"><label class="form-check-label" for="g4">Fantasy</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Science Fiction" id="g5"><label class="form-check-label" for="g5">Sci-Fi</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Historical Fiction" id="g6"><label class="form-check-label" for="g6">Historical Fiction</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Self-Help" id="g7"><label class="form-check-label" for="g7">Self-Help</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Personal Growth" id="g8"><label class="form-check-label" for="g8">Personal Growth</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Business" id="g9"><label class="form-check-label" for="g9">Business</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Finance" id="g10"><label class="form-check-label" for="g10">Finance</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Biography" id="g11"><label class="form-check-label" for="g11">Biography</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Christian/Inspirational" id="g12"><label class="form-check-label" for="g12">Christian/Inspirational</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Health & Wellness" id="g13"><label class="form-check-label" for="g13">Health & Wellness</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Cookbooks" id="g14"><label class="form-check-label" for="g14">Cookbooks</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Poetry" id="g15"><label class="form-check-label" for="g15">Poetry</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Horror" id="g16"><label class="form-check-label" for="g16">Horror</label></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Young Adult" id="g17"><label class="form-check-label" for="g17">Young Adult</label></div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-check"><input class="form-check-input" type="checkbox" name="genres" value="Other" id="g18"><label class="form-check-label" for="g18">Other: <input type="text" class="form-control form-control-sm d-inline-block w-auto" placeholder="Specify" style="max-width:200px;"></label></div>
+                                            </div>
                                         </div>
                                         <div class="mb-4">
                                             <label class="form-label">What genres do you DISLIKE?</label>
@@ -332,13 +368,27 @@
                                             <div class="col-md-12">
                                                 <label class="form-label">Favorite Drinks</label>
                                                 <div class="row g-2">
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Coffee" id="d1"><label class="form-check-label" for="d1">Coffee</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Herbal Tea" id="d2"><label class="form-check-label" for="d2">Herbal Tea</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Green Tea" id="d3"><label class="form-check-label" for="d3">Green Tea</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Black Tea" id="d4"><label class="form-check-label" for="d4">Black Tea</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Chai Tea" id="d5"><label class="form-check-label" for="d5">Chai Tea</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Hot Chocolate" id="d6"><label class="form-check-label" for="d6">Hot Chocolate</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="I don't drink hot beverages" id="d7"><label class="form-check-label" for="d7">No hot beverages</label></div></div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Coffee" id="d1"><label class="form-check-label" for="d1">Coffee</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Herbal Tea" id="d2"><label class="form-check-label" for="d2">Herbal Tea</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Green Tea" id="d3"><label class="form-check-label" for="d3">Green Tea</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Black Tea" id="d4"><label class="form-check-label" for="d4">Black Tea</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Chai Tea" id="d5"><label class="form-check-label" for="d5">Chai Tea</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="Hot Chocolate" id="d6"><label class="form-check-label" for="d6">Hot Chocolate</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="drinks" value="I don't drink hot beverages" id="d7"><label class="form-check-label" for="d7">No hot beverages</label></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -359,14 +409,30 @@
                                             <div class="col-md-12">
                                                 <label class="form-label">Favorite Snacks</label>
                                                 <div class="row g-2">
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Chocolate" id="s1"><label class="form-check-label" for="s1">Chocolate</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Cookies" id="s2"><label class="form-check-label" for="s2">Cookies</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Trail Mix" id="s3"><label class="form-check-label" for="s3">Trail Mix</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Popcorn" id="s4"><label class="form-check-label" for="s4">Popcorn</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Granola Bars" id="s5"><label class="form-check-label" for="s5">Granola Bars</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Chips" id="s6"><label class="form-check-label" for="s6">Chips</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Candy" id="s7"><label class="form-check-label" for="s7">Candy</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Healthy Snacks" id="s8"><label class="form-check-label" for="s8">Healthy Snacks</label></div></div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Chocolate" id="s1"><label class="form-check-label" for="s1">Chocolate</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Cookies" id="s2"><label class="form-check-label" for="s2">Cookies</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Trail Mix" id="s3"><label class="form-check-label" for="s3">Trail Mix</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Popcorn" id="s4"><label class="form-check-label" for="s4">Popcorn</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Granola Bars" id="s5"><label class="form-check-label" for="s5">Granola Bars</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Chips" id="s6"><label class="form-check-label" for="s6">Chips</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Candy" id="s7"><label class="form-check-label" for="s7">Candy</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="snacks" value="Healthy Snacks" id="s8"><label class="form-check-label" for="s8">Healthy Snacks</label></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -382,26 +448,66 @@
                                             <div class="col-md-12">
                                                 <label class="form-label">Self-Care Items You Would Enjoy</label>
                                                 <div class="row g-2">
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Candles" id="i1"><label class="form-check-label" for="i1">Candles</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Bath Bombs" id="i2"><label class="form-check-label" for="i2">Bath Bombs</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Bath Salts" id="i3"><label class="form-check-label" for="i3">Bath Salts</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Essential Oils" id="i4"><label class="form-check-label" for="i4">Essential Oils</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Face Masks" id="i5"><label class="form-check-label" for="i5">Face Masks</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Journals" id="i6"><label class="form-check-label" for="i6">Journals</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Coloring Books" id="i7"><label class="form-check-label" for="i7">Coloring Books</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Adult Coloring Pencils" id="i8"><label class="form-check-label" for="i8">Coloring Pencils</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Pens" id="i9"><label class="form-check-label" for="i9">Pens</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Bookmarks" id="i10"><label class="form-check-label" for="i10">Bookmarks</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Cozy Socks" id="i11"><label class="form-check-label" for="i11">Cozy Socks</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Blankets" id="i12"><label class="form-check-label" for="i12">Blankets</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Mugs" id="i13"><label class="form-check-label" for="i13">Mugs</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Positive Affirmation Cards" id="i14"><label class="form-check-label" for="i14">Affirmation Cards</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Stress Ball" id="i15"><label class="form-check-label" for="i15">Stress Ball</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Fidget Toy" id="i16"><label class="form-check-label" for="i16">Fidget Toy</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Aromatherapy" id="i17"><label class="form-check-label" for="i17">Aromatherapy</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Lip Balm" id="i18"><label class="form-check-label" for="i18">Lip Balm</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Skin Care" id="i19"><label class="form-check-label" for="i19">Skin Care</label></div></div>
-                                                    <div class="col-md-6"><div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Other" id="i20"><label class="form-check-label" for="i20">Other: <input type="text" class="form-control form-control-sm d-inline-block w-auto" placeholder="Specify" style="max-width:200px;"></label></div></div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Candles" id="i1"><label class="form-check-label" for="i1">Candles</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Bath Bombs" id="i2"><label class="form-check-label" for="i2">Bath Bombs</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Bath Salts" id="i3"><label class="form-check-label" for="i3">Bath Salts</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Essential Oils" id="i4"><label class="form-check-label" for="i4">Essential Oils</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Face Masks" id="i5"><label class="form-check-label" for="i5">Face Masks</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Journals" id="i6"><label class="form-check-label" for="i6">Journals</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Coloring Books" id="i7"><label class="form-check-label" for="i7">Coloring Books</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Adult Coloring Pencils" id="i8"><label class="form-check-label" for="i8">Coloring Pencils</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Pens" id="i9"><label class="form-check-label" for="i9">Pens</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Bookmarks" id="i10"><label class="form-check-label" for="i10">Bookmarks</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Cozy Socks" id="i11"><label class="form-check-label" for="i11">Cozy Socks</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Blankets" id="i12"><label class="form-check-label" for="i12">Blankets</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Mugs" id="i13"><label class="form-check-label" for="i13">Mugs</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Positive Affirmation Cards" id="i14"><label class="form-check-label" for="i14">Affirmation Cards</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Stress Ball" id="i15"><label class="form-check-label" for="i15">Stress Ball</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Fidget Toy" id="i16"><label class="form-check-label" for="i16">Fidget Toy</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Aromatherapy" id="i17"><label class="form-check-label" for="i17">Aromatherapy</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Lip Balm" id="i18"><label class="form-check-label" for="i18">Lip Balm</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Skin Care" id="i19"><label class="form-check-label" for="i19">Skin Care</label></div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="items" value="Other" id="i20"><label class="form-check-label" for="i20">Other: <input type="text" class="form-control form-control-sm d-inline-block w-auto" placeholder="Specify" style="max-width:200px;"></label></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -440,17 +546,39 @@
                                             <div class="col-md-12">
                                                 <label class="form-label">Favorite Scents</label>
                                                 <div class="row g-2">
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Lavender" id="sc1"><label class="form-check-label" for="sc1">Lavender</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Vanilla" id="sc2"><label class="form-check-label" for="sc2">Vanilla</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Coconut" id="sc3"><label class="form-check-label" for="sc3">Coconut</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Citrus" id="sc4"><label class="form-check-label" for="sc4">Citrus</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Peppermint" id="sc5"><label class="form-check-label" for="sc5">Peppermint</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Sandalwood" id="sc6"><label class="form-check-label" for="sc6">Sandalwood</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Rose" id="sc7"><label class="form-check-label" for="sc7">Rose</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Eucalyptus" id="sc8"><label class="form-check-label" for="sc8">Eucalyptus</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Cinnamon" id="sc9"><label class="form-check-label" for="sc9">Cinnamon</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Fresh Linen" id="sc10"><label class="form-check-label" for="sc10">Fresh Linen</label></div></div>
-                                                    <div class="col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Unscented" id="sc11"><label class="form-check-label" for="sc11">Unscented</label></div></div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Lavender" id="sc1"><label class="form-check-label" for="sc1">Lavender</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Vanilla" id="sc2"><label class="form-check-label" for="sc2">Vanilla</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Coconut" id="sc3"><label class="form-check-label" for="sc3">Coconut</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Citrus" id="sc4"><label class="form-check-label" for="sc4">Citrus</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Peppermint" id="sc5"><label class="form-check-label" for="sc5">Peppermint</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Sandalwood" id="sc6"><label class="form-check-label" for="sc6">Sandalwood</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Rose" id="sc7"><label class="form-check-label" for="sc7">Rose</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Eucalyptus" id="sc8"><label class="form-check-label" for="sc8">Eucalyptus</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Cinnamon" id="sc9"><label class="form-check-label" for="sc9">Cinnamon</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Fresh Linen" id="sc10"><label class="form-check-label" for="sc10">Fresh Linen</label></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="scents" value="Unscented" id="sc11"><label class="form-check-label" for="sc11">Unscented</label></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -466,16 +594,36 @@
                                             <div class="col-md-12">
                                                 <label class="form-label">Wellness Goals — I would like my box to help me:</label>
                                                 <div class="row g-2">
-                                                    <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Relax" id="go1"><label class="form-check-label" for="go1">Relax</label></div></div>
-                                                    <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Reduce Stress" id="go2"><label class="form-check-label" for="go2">Reduce Stress</label></div></div>
-                                                    <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Sleep Better" id="go3"><label class="form-check-label" for="go3">Sleep Better</label></div></div>
-                                                    <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Practice Self-Care" id="go4"><label class="form-check-label" for="go4">Practice Self-Care</label></div></div>
-                                                    <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Build Better Habits" id="go5"><label class="form-check-label" for="go5">Build Better Habits</label></div></div>
-                                                    <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Personal Growth" id="go6"><label class="form-check-label" for="go6">Personal Growth</label></div></div>
-                                                    <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Increase Motivation" id="go7"><label class="form-check-label" for="go7">Increase Motivation</label></div></div>
-                                                    <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Improve Mental Wellness" id="go8"><label class="form-check-label" for="go8">Improve Mental Wellness</label></div></div>
-                                                    <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Reduce Anxiety" id="go9"><label class="form-check-label" for="go9">Reduce Anxiety</label></div></div>
-                                                    <div class="col-md-4"><div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Find More Time for Myself" id="go10"><label class="form-check-label" for="go10">Find More Time for Myself</label></div></div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Relax" id="go1"><label class="form-check-label" for="go1">Relax</label></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Reduce Stress" id="go2"><label class="form-check-label" for="go2">Reduce Stress</label></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Sleep Better" id="go3"><label class="form-check-label" for="go3">Sleep Better</label></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Practice Self-Care" id="go4"><label class="form-check-label" for="go4">Practice Self-Care</label></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Build Better Habits" id="go5"><label class="form-check-label" for="go5">Build Better Habits</label></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Personal Growth" id="go6"><label class="form-check-label" for="go6">Personal Growth</label></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Increase Motivation" id="go7"><label class="form-check-label" for="go7">Increase Motivation</label></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Improve Mental Wellness" id="go8"><label class="form-check-label" for="go8">Improve Mental Wellness</label></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Reduce Anxiety" id="go9"><label class="form-check-label" for="go9">Reduce Anxiety</label></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" name="goals" value="Find More Time for Myself" id="go10"><label class="form-check-label" for="go10">Find More Time for Myself</label></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -558,9 +706,10 @@
                                 </div>
                                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 quick-contact">
                                     <h3 class="mb-3">Contact</h3>
-                                    <p class="d-flex mb-3"><i class="bi bi-geo-alt-fill me-3"></i><span>123 Main Street Apt 4B<br>Springfield, IL 62701</span></p>
+                                    <p class="d-flex mb-3"><i class="bi bi-geo-alt-fill me-3"></i><span>Wright City<br />Missouri</span
+                      ></p>
                                     <a class="d-flex mb-3" href="mailto:hannah.johnson108@icloud.com"><i class="bi bi-envelope-fill me-3"></i><span>hannah.johnson108@icloud.com</span></a>
-                                    <a class="d-flex mb-3" href="tel://+16367550034"><i class="bi bi-telephone-fill me-3"></i><span>+1 (636) 755-0034</span></a>
+                                        <a class="d-flex mb-3" href="tel://+16367550034"><i class="bi bi-telephone-fill me-3"></i><span>+1 (636) 755-0034</span></a>
                                 </div>
                             </div>
                         </div>
